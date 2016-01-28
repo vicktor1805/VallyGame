@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Jugador:MonoBehaviour
+public class Jugador : MonoBehaviour
 {
     int pos = 1;
     Vector3 EndPoint;
@@ -26,6 +26,7 @@ public class Jugador:MonoBehaviour
     void Update()
     {
 
+#if UNITY_STANDALONE && UNITY_EDITOR
         if (Input.GetKeyUp(KeyCode.RightArrow) && pos != 2 && IsMoving == false)
         {
             pos += 1;
@@ -38,6 +39,27 @@ public class Jugador:MonoBehaviour
             pos -= 1;
             EndPoint = Carriles[pos];
             StartCoroutine(MoveToPosition(this.transform, EndPoint, duration));
+        }
+#endif
+    }
+
+    public void MoveToDirection(bool direction)
+    {
+        if (direction && pos != 2 && IsMoving == false)
+        {
+            pos += 1;
+            EndPoint = Carriles[pos];
+            StartCoroutine(MoveToPosition(this.transform, EndPoint, duration));
+        }
+        else
+        {
+            if (!direction && pos != 0 && IsMoving == false)
+            {
+                pos -= 1;
+                EndPoint = Carriles[pos];
+                StartCoroutine(MoveToPosition(this.transform, EndPoint, duration));
+            }
+
         }
     }
 
