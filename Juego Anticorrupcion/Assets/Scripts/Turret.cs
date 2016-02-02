@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿	using UnityEngine;
 using System.Collections;
 
 public class Turret : MonoBehaviour
@@ -52,7 +52,7 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        GameObject NuevaBala = Instantiate(balloon, source.transform.position, Quaternion.identity) as GameObject;
+		GameObject NuevaBala = Instantiate(balloon, source.transform.position, balloon.transform.rotation/* Quaternion.identity*/) as GameObject;
         NuevaBala.transform.LookAt(MousePos);
         rb = NuevaBala.GetComponent<Rigidbody>();
         rb.AddForce(    torreta.transform.forward * ShootForce);

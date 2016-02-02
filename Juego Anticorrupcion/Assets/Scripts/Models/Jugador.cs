@@ -26,7 +26,7 @@ public class Jugador : MonoBehaviour
     void Update()
     {
 
-#if UNITY_STANDALONE && UNITY_EDITOR
+//#if UNITY_STANDALONE
         if (Input.GetKeyUp(KeyCode.RightArrow) && pos != 2 && IsMoving == false)
         {
             pos += 1;
@@ -40,7 +40,7 @@ public class Jugador : MonoBehaviour
             EndPoint = Carriles[pos];
             StartCoroutine(MoveToPosition(this.transform, EndPoint, duration));
         }
-#endif
+//#endif
     }
 
     public void MoveToDirection(bool direction)
