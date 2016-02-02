@@ -52,10 +52,12 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-		GameObject NuevaBala = Instantiate(balloon, source.transform.position, balloon.transform.rotation/* Quaternion.identity*/) as GameObject;
+		var rotation = Quaternion.AngleAxis (90f, Vector3.forward);
+		GameObject NuevaBala = Instantiate(balloon, source.transform.position, rotation) as GameObject;
         NuevaBala.transform.LookAt(MousePos);
         rb = NuevaBala.GetComponent<Rigidbody>();
         rb.AddForce(    torreta.transform.forward * ShootForce);
+		rb.AddTorque (Vector3.right * ShootForce);
         Destroy(NuevaBala, 5);
 
     }
