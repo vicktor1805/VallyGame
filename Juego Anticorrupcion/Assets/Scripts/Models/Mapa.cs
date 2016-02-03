@@ -10,7 +10,7 @@ public class Mapa : MonoBehaviour
     private Vector3 SpawnPOsitionHighWay;
     private float SpeedCreation;
     private Vector3[] ObstaculoSpawn;
-    public GameObject Obstaculo;
+    public GameObject[] Obstaculo;
     public GameObject casa;
 
     //IEnumerator MoveTowards(Vector3 NewPosition)
@@ -71,7 +71,9 @@ public class Mapa : MonoBehaviour
     {
         System.Random r = new System.Random();
         int pos = r.Next(0,3);
-        GameObject NuevoObstaculo = Instantiate(Obstaculo, ObstaculoSpawn[pos], Quaternion.identity) as GameObject;
+		int enemy = r.Next(0,Obstaculo.Length);
+
+		GameObject NuevoObstaculo = Instantiate(Obstaculo[enemy], ObstaculoSpawn[pos], Quaternion.identity) as GameObject;
         NuevoObstaculo.name = "Obstaculo" + pos.ToString();
 
     }
