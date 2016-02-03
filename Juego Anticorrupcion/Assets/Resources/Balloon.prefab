@@ -41,9 +41,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131676}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 26.370064, y: -2.8007867, z: -62.692467}
-  m_LocalScale: {x: 0.4492138, y: 0.5402731, z: 0.4492138}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
+  m_LocalPosition: {x: 26.3700638, y: -2.80078673, z: -62.6924667}
+  m_LocalScale: {x: .449213803, y: .54027307, z: .449213803}
   m_Children:
   - {fileID: 487648}
   m_Father: {fileID: 0}
@@ -81,7 +81,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -102,7 +102,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: .0500000007
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -118,8 +118,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9075847, y: 2.7032905, z: 1.900997}
-  m_Center: {x: -0.015175099, y: -0.31453228, z: -0.038990885}
+  m_Size: {x: 1.90758467, y: 2.70329046, z: 1.90099704}
+  m_Center: {x: -.0151750986, y: -.31453228, z: -.038990885}
 --- !u!114 &11404802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3302f7d67bde3344ae64efc745df822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Explosion: {fileID: 164100, guid: 0750254d03d9c0d40a22f73528714f0c, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -158,6 +159,10 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Explosion
+      value: 
+      objectReference: {fileID: 164100, guid: 0750254d03d9c0d40a22f73528714f0c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 131676}
