@@ -31,7 +31,7 @@ public class Jugador : MonoBehaviour
         //if (Input.GetKeyUp(KeyCode.RightArrow) && pos != 2 && IsMoving == false)
         float Acceleration = Input.acceleration.x;
         //GameObject.Find("Text").GetComponent<Text>().text = Acceleration.ToString();
-        if(Acceleration > 0.2 && Acceleration != 0 && pos != 2 && IsMoving == false)
+        if(Acceleration > 0.3 && Acceleration != 0 && pos != 2 && IsMoving == false)
         {
             pos += 1;
             EndPoint = Carriles[pos];
@@ -39,7 +39,7 @@ public class Jugador : MonoBehaviour
         }
 
         //if (Input.GetKeyUp(KeyCode.LeftArrow) && pos != 0 && IsMoving == false)
-        if(Input.acceleration.x < 0.05 && Acceleration != 0 && pos != 0 && IsMoving == false)
+        if(Input.acceleration.x < -0.2 && Acceleration != 0 && pos != 0 && IsMoving == false)
         {
             pos -= 1;
             EndPoint = Carriles[pos];
