@@ -48,6 +48,40 @@ public class Jugador : MonoBehaviour
 //#endif
     }
 
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.transform.tag.Equals("wheel")) 
+		{
+			Destroy (collision.gameObject);
+			StartCoroutine(DoBlinks(1f, 0.2f));
+			print ("choco con llanta!");
+		}
+	}
+
+	IEnumerator DoBlinks(float duration, float blinkTime) {
+
+		MeshRenderer[] camion = GetComponentsInChildren<MeshRenderer>();
+		while (duration > 0f) 
+		{
+			duration -= 0.2f;
+
+			//toggle renderer
+			foreach (var item in camion) 
+			{
+				item.GetComponent<Renderer> ().enabled = !item.GetComponent<Renderer> ().enabled;
+			}
+
+			//wait for a bit
+			yield return new WaitForSeconds(blinkTime);
+		}
+
+		//make sure renderer is enabled when we exit
+		foreach (var item in camion) 
+		{
+			item.GetComponent<Renderer> ().enabled = true;
+		}
+	}
+
     public void MoveToDirection(bool direction)
     {
         if (direction && pos != 2 && IsMoving == false)

@@ -34,7 +34,7 @@ public class Turret : MonoBehaviour
             print(ct.IsPointerOverGameObject());
             Click = Input.mousePosition;
             Click.z = 10;
-            MousePos = CamaraCanionTorreta.ScreenToWorldPoint(Click);
+            //MousePos = CamaraCanionTorreta.ScreenToWorldPoint(Click);
             Shoot();
         }
 

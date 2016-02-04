@@ -6,6 +6,7 @@ TagManager:
   tags:
   - plane
   - sphere
+  - wheel
   layers:
   - Default
   - TransparentFX
