@@ -11,7 +11,8 @@ public class Jugador : MonoBehaviour
     float StartTime;
     bool IsMoving;
     Vector3[] Carriles;
-
+    private int Anforas;
+    public Text AnforasText;
     void Start()
     {
         duration = (float)0.3;
@@ -21,6 +22,8 @@ public class Jugador : MonoBehaviour
         Carriles[0] = new Vector3((float)-8.90, (float)0.85, (float)-107.8);
         Carriles[1] = new Vector3((float)-0.08, (float)0.85, (float)-107.8);
         Carriles[2] = new Vector3((float)8.77, (float)0.85, (float)-107.8);
+        Anforas = 100;
+        AnforasText.text = "Anforas: <color=RED>" + Anforas+"%</color>";
     }
 
 
@@ -55,10 +58,12 @@ public class Jugador : MonoBehaviour
 			Destroy (collision.gameObject);
 			StartCoroutine(DoBlinks(1f, 0.2f));
 			print ("choco con llanta!");
+            Damage();
 		}
 	}
 
-	IEnumerator DoBlinks(float duration, float blinkTime) {
+	IEnumerator DoBlinks(float duration, float blinkTime)
+    {
 
 		MeshRenderer[] camion = GetComponentsInChildren<MeshRenderer>();
 		while (duration > 0f) 
@@ -81,6 +86,14 @@ public class Jugador : MonoBehaviour
 			item.GetComponent<Renderer> ().enabled = true;
 		}
 	}
+
+    void Damage()
+    {
+        Anforas -= 3;
+        AnforasText.text = "Anforas: <color=RED>" + Anforas + "%</color>";
+        print(Anforas);
+
+    }
 
     public void MoveToDirection(bool direction)
     {
