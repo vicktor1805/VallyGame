@@ -91,8 +91,8 @@ public class Mapa : MonoBehaviour
         ObstaculoSpawn[1] = new Vector3(0, (float)-2.5, 50);
         ObstaculoSpawn[2] = new Vector3(+12, (float)-2.5, 50);
 
-        InvokeRepeating("GenerarDivisores", 1, 0.42f);
-        InvokeRepeating("GenerarCarretera", 1, 1.95f);
+        InvokeRepeating("GenerarDivisores", 1, 0.45f);
+        InvokeRepeating("GenerarCarretera", 1, 2f);
         InvokeRepeating("GenerarObstaculo",1,1f);
         InvokeRepeating("GenerarCasa", 1, 1f);
 

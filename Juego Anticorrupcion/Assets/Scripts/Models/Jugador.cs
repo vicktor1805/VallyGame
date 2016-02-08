@@ -6,22 +6,12 @@ public class Jugador : MonoBehaviour
 {
     int pos = 1;
     Vector3 EndPoint;
-    Vector3 StartPoint;
-    float duration;
-    float StartTime;
     bool IsMoving;
-    Vector3[] Carriles;
     private int Anforas;
     public Text AnforasText;
     void Start()
     {
-        duration = (float)0.3;
-        StartPoint = transform.position;
-        StartTime = Time.time;
-        Carriles = new Vector3[3];
-        Carriles[0] = new Vector3((float)-8.90, (float)0.85, (float)-107.8);
-        Carriles[1] = new Vector3((float)-0.08, (float)0.85, (float)-107.8);
-        Carriles[2] = new Vector3((float)8.77, (float)0.85, (float)-107.8);
+       
         Anforas = 100;
         AnforasText.text = "Anforas: <color=RED>" + Anforas+"%</color>";
     }
@@ -37,16 +27,16 @@ public class Jugador : MonoBehaviour
         if(Acceleration > 0.3 && Acceleration != 0 && pos != 2 && IsMoving == false)
         {
             pos += 1;
-            EndPoint = Carriles[pos];
-            StartCoroutine(MoveToPosition(this.transform, EndPoint, duration));
+            EndPoint = Data.Carriles[pos];
+            StartCoroutine(MoveToPosition(this.transform, EndPoint, Data.duration));
         }
 
         //if (Input.GetKeyUp(KeyCode.LeftArrow) && pos != 0 && IsMoving == false)
         if(Input.acceleration.x < -0.2 && Acceleration != 0 && pos != 0 && IsMoving == false)
         {
             pos -= 1;
-            EndPoint = Carriles[pos];
-            StartCoroutine(MoveToPosition(this.transform, EndPoint, duration));
+            EndPoint = Data.Carriles[pos];
+            StartCoroutine(MoveToPosition(this.transform, EndPoint, Data.duration));
         }
 //#endif
     }
@@ -100,16 +90,16 @@ public class Jugador : MonoBehaviour
         if (direction && pos != 2 && IsMoving == false)
         {
             pos += 1;
-            EndPoint = Carriles[pos];
-            StartCoroutine(MoveToPosition(this.transform, EndPoint, duration));
+            EndPoint = Data.Carriles[pos];
+            StartCoroutine(MoveToPosition(this.transform, EndPoint, Data.duration));
         }
         else
         {
             if (!direction && pos != 0 && IsMoving == false)
             {
                 pos -= 1;
-                EndPoint = Carriles[pos];
-                StartCoroutine(MoveToPosition(this.transform, EndPoint, duration));
+                EndPoint = Data.Carriles[pos];
+                StartCoroutine(MoveToPosition(this.transform, EndPoint, Data.duration));
             }
 
         }
