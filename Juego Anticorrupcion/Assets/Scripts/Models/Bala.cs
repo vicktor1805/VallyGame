@@ -8,7 +8,7 @@ public class Bala : MonoBehaviour
 
         GameObject Nuevaexp =  Instantiate(Explosion, transform.position, Quaternion.identity) as GameObject;
         Destroy(Nuevaexp, 0.5f); 
-        if (collision.transform.name.Contains ("Obstaculo")) 
+		if (collision.transform.name.Contains ("Obstaculo") && !collision.transform.tag.Equals("wheel")) 
 		{
 			Destroy (collision.gameObject);
         }
